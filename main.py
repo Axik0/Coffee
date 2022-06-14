@@ -61,7 +61,7 @@ class CafeForm(FlaskForm):
     location_f = StringField(label='Location', validators=[DataRequired()])
     # img_url_f = StringField(label='Photo', validators=[DataRequired()])
     coffee_price_f = SelectField(label='Price', choices=ch_list_gen('💲'), validators=[DataRequired()])
-    has_wifi_f = BooleanField(label='Has Wi-Fi?', render_kw={'value': 1})
+    has_wifi_f = BooleanField(label='Has Wi-Fi?')
 
     submit_f = SubmitField(label='Submit')
 
@@ -83,8 +83,8 @@ def add_cafe():
         new_cafe.location = request.form.get('location_f')
         # new_cafe.img_url = request.form.get('img_url_f')
         new_cafe.coffee_price = request.form.get('coffee_price_f')
-        new_cafe.has_wifi = int(request.form.get('has_wifi_f'))
-        print(request.form.get('has_wifi_f'))
+        # I don't know why I can't get a False value directly from an unchecked box, so
+        new_cafe.has_wifi = True if request.form.get('has_wifi_f') else False
         try:
             db.session.add(new_cafe)
             db.session.commit()
@@ -115,7 +115,7 @@ def edit(cafe_id):
         cafe_to_edit.location = request.form.get('location_f')
         # cafe_to_edit.img_url = request.form.get('img_url_f')
         cafe_to_edit.coffee_price = request.form.get('coffee_price_f')
-        # cafe_to_edit.has_wifi = int(request.form.get('has_wifi_f'))
+        cafe_to_edit.has_wifi = True if request.form.get('has_wifi_f') else False
         try:
             db.session.commit()
             return redirect(url_for('get_all'))

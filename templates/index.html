@@ -25,7 +25,7 @@ Coffee?
             <h1 class="card-title pricing-card-title">$ {{cafes[0].coffee_price|length() }}<small class="text-muted fw-light">/5</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>Location: {{ cafes[0].location }}</li>
-              <li>Has Wi-Fi: <i class="bi {{'bi-wifi' if cafes[0].has_wifi else 'bi-wifi-off' }}"></i></li>
+              <li><i class="bi {{'bi-wifi' if cafes[0].has_wifi else 'bi-wifi-off' }}"></i></li>
             </ul>
             <a href=" /cafes/{{ cafes[0].id }} " class="w-100 btn btn-lg btn-outline-primary">Go</a>
           </div>
@@ -40,7 +40,7 @@ Coffee?
             <h1 class="card-title pricing-card-title">$ {{cafes[1].coffee_price|length() }}<small class="text-muted fw-light">/5</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>Location: {{ cafes[1].location }}</li>
-              <li>Has Wi-Fi: <i class="bi {{'bi-wifi' if cafes[1].has_wifi else 'bi-wifi-off' }}"></i></li>
+              <li><i class="bi {{'bi-wifi' if cafes[1].has_wifi else 'bi-wifi-off' }}"></i></li>
             </ul>
             <a href=" /cafes/{{ cafes[1].id }} " class="w-100 btn btn-lg btn-primary">Go</a>
           </div>
@@ -55,7 +55,7 @@ Coffee?
             <h1 class="card-title pricing-card-title">$ {{cafes[2].coffee_price|length() }}<small class="text-muted fw-light">/5</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>Location: {{ cafes[2].location }}</li>
-              <li>Has Wi-Fi: <i class="bi {{'bi-wifi' if cafes[2].has_wifi else 'bi-wifi-off' }}"></i></li>
+              <li><i class="bi {{'bi-wifi' if cafes[2].has_wifi else 'bi-wifi-off' }}"></i></li>
             </ul>
             <a href=" /cafes/{{ cafes[2].id }} " class="w-100 btn btn-lg btn-primary">Go</a>
           </div>
