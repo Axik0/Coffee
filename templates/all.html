@@ -1,0 +1,44 @@
+{% extends 'ourbase.html' %}
+
+
+{% block title %}
+Available cafes
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Available cafes</h1>
+	  <table class="table">
+          <!-- This is where you will write the code to render a Bootstrap
+          Table that contains all the information from the
+                  cafe-data.csv file. -->
+          <thead>
+            <tr>
+              {% for key in cafes[0] %}
+                <th scope="col">{{ key }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+          {% for cafe in cafes %}
+            <a href=" {{url_for('index')}} "><tr>
+              {% for key in cafe %}
+                {% if key == 'has_wifi'%}
+                    <th scope="col">{{'✅' if cafe[key] == True else '❌' }}</th>
+                {% elif key == 'name'%}
+                    <th scope="col"><a href=" cafes/{{ cafe.id }} ">{{ cafe[key] }}</a></th>
+                {% else %}
+                  <th scope="col">{{ cafe[key] }}</th>
+                {% endif %}
+              {% endfor %}
+            </tr></a>
+          {% endfor %}
+          </tbody>
+  	  </table>
+    </div>
+  </div>
+</div>
+{{ super() }}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends 'ourbase.html' %}
+
+{% block title %}
+Edit {{ cafe.name }}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+      <h1>Make your edits:</h1>
+      {{ wtf.quick_form(form, novalidate=True) }}
+      <p class="space-above mt-1">
+        <a id="delete_f" href=" /delete/{{ cafe.id }} " class="btn">Delete</a>
+      </p>
+    </div>
+  </div>
+</div>
+{{ super() }}
+{% endblock %}
